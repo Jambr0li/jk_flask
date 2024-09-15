@@ -1,6 +1,8 @@
 import json
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
+import os
+print(f"FLASK_ENV: {os.getenv('FLASK_ENV')}")
 
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
@@ -58,4 +60,4 @@ def home():
     return render_template("home.html", session=session.get('user'), pretty=json.dumps(session.get('user'), indent=4))
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=env.get("PORT", 3000))
+    app.run(host="0.0.0.0", port=env.get("PORT", 3000), debug=True)
