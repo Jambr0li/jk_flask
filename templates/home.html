@@ -1,60 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home OAuth</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home_styles.css') }}">
+
+    <!-- Inline Styles for Dark Mode and Minimalist Design -->
 </head>
 <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="/">Hola</a>
-        <div>
-            {% if session %}
-                <a href="/logout" class="btn btn-outline-danger">Logout</a>
-            {% else %}
-                <a href="/login" class="btn btn-outline-primary">Login</a>
-            {% endif %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Hola</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                {% if session %}
+                    <a href="/logout" class="btn btn-outline-light">Logout</a>
+                {% else %}
+                    <a href="/login" class="btn btn-outline-light">Login</a>
+                {% endif %}
+            </div>
         </div>
     </nav>
-
     <!-- Main Content -->
-    <div class="container mt-5">
-        <div class="text-center">
+    <div class="container mt-3">
+        <div class="text-start">
             {% if session %}
                 <h1 class="mb-3">Welcome, {{ session.userinfo.name }}!</h1>
-                <!-- <div><pre>{{pretty}}</pre></div> -->
-                <p>You're logged in.</p>
             {% else %}
                 <h1 class="mb-3">Welcome!</h1>
-                <p>Please log in to access more features.</p>
             {% endif %}
+            <p>I'm Jason.</p>
+            <p class="m-1">This site is built with:</p>
+            <p class="m-1">- <strong>Flask: </strong>Because I wanted something lightweight and simple.</p>
+            <p class="m-1">- <strong>Digital Ocean: </strong>I am hosting this on a droplet. It was something that I wanted to learn about.</p>
+            <p class="m-1">- <strong>JWT: </strong>I wanted to learn how to do authentication with this new modern approach.</p>
+            <p class="m-1">- <strong>Flask-FlatPages: </strong>I wanted a very simple/lightweight CMS that I can host on the same droplet. 
+            I went with flatpages because it integrated well with flask and I can host it locally. Also, using markdown language for formatting
+            makes things very simple.</p>
         </div>
+
+        {% block content %}
+        <h4 class="mt-5 mb-4 text-center">blog:</h4>
+        {% for post in posts %}
+            <article class="post">
+                <h2>{{ post.meta.title }}</h2>
+                <p class="text-muted">
+                    <em>{{ post.meta.date }} | {{ post.meta.time}}</em>
+                </p>
+                <div class="content">
+                    {{ post.html|safe }}
+                </div>
+                <hr>
+            </article>
+        {% endfor %}
+        {% endblock %}
     </div>
 
-    {% block content %}
-    <h1>Blog Posts</h1>
-    {% for post in posts %}
-        <article class="post">
-        <h2>{{ post.meta.title }}</h2>
-        <p>
-            <em>By {{ post.meta.author }} on {{ post.meta.date }}</em>
-        </p>
-        <div class="content">
-            {{ post.html|safe }}
-        </div>
-        <hr>
-        </article>
-    {% endfor %}
-    {% endblock %}
-
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

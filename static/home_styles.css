@@ -1,4 +1,22 @@
-
-.welcome {
-    color: rgb(12, 12, 121);
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+.navbar {
+    margin-bottom: 2rem;
+}
+.post {
+    margin-bottom: 2rem;
+}
+.post h2 {
+    margin-bottom: 0.5rem;
+}
+.post .content {
+    margin-top: 1rem;
+}
+hr {
+    border-top: 1px solid #444;
+}
+.text-muted {
+    color: #aaaaaa !important;
 }

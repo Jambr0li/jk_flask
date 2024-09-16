@@ -2,10 +2,7 @@ import json
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
 import os
-# print(f"FLASK_ENV: {os.getenv('FLASK_ENV')}")
-
 from config import Config
-
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, render_template, session, url_for
@@ -38,7 +35,6 @@ def login():
     return oauth.auth0.authorize_redirect(
         redirect_uri=url_for("callback", _external=True)
     )
-
 
 @app.route("/callback", methods=["GET","POST"])
 def callback():
