@@ -20,16 +20,7 @@ hr {
 .text-muted {
     color: #aaaaaa !important;
 }
-
-.post {
-    opacity: 1;
-    transition: opacity 0.5s;
-}
-
-.fade-in {
-    opacity: 1;
-}
-
-.fade-out {
-    opacity: 0;
+.btn.active {
+    background-color: #0d6efd;  /* Bootstrap primary color */
+    color: white;
 }
