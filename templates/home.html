@@ -55,8 +55,22 @@
 
         {% block content %}
         <h4 class="mt-5 mb-4 text-center">blog:</h4>
+
+        <div class="tag-buttons">
+            <button data-tag="all">All</button>
+            {% set all_tags = [] %}
+            {% for post in posts %}
+                {% for tag in post.meta.get('tags', []) %}
+                    {% if tag not in all_tags %}
+                        {% set _ = all_tags.append(tag) %}
+                        <button data-tag="{{ tag }}">{{ tag.capitalize() }}</button>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div> 
+
         {% for post in posts %}
-            <article class="post">
+            <article class="post" data-tags="{{ ' '.join(post.meta.get('tags', [])) }}">
                 <h2>{{ post.meta.title }}</h2>
                 <p class="text-muted">
                     <em>{{ post.meta.date }} | {{ post.meta.time}}</em>
@@ -71,6 +85,33 @@
     </div>
 
     <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.tag-buttons button');
+            const posts = document.querySelectorAll('.post');
+        
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tag = this.getAttribute('data-tag');
+        
+                    posts.forEach(post => {
+                        const postTags = post.getAttribute('data-tags');
+                        if (tag === 'all' || postTags.includes(tag)) {
+                            post.style.display = 'block';
+                            post.classList.add('fade-in');
+                            post.classList.remove('fade-out');
+                        } else {
+                            post.classList.add('fade-out');
+                            post.classList.remove('fade-in');
+                            setTimeout(() => {
+                                post.style.display = 'none';
+                            }, 500); // Duration matches CSS animation
+                        }
+                    });
+                });
+            });
+        });
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
