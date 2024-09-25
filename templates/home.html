@@ -65,6 +65,7 @@
                         <button class="btn btn-outline-primary me-2 mb-2 active" data-tag="all">All</button>
         
                         <!-- Loop Through Tags -->
+                         {# 
                         {% set all_tags = [] %}
                         {% for post in posts %}
                             {% for tag in post.meta.get('tags', []) %}
@@ -73,7 +74,8 @@
                                 {% endif %}
                             {% endfor %}
                         {% endfor %}
-        
+                        #}
+                        {% set all_tags = ["haiku", "code", "life"] %}
                         <!-- Create Buttons for Tags -->
                         {% for tag in all_tags %}
                             <button class="btn btn-outline-primary me-2 mb-2" data-tag="{{ tag }}">{{ tag.capitalize() }}</button>
