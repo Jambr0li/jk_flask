@@ -57,13 +57,11 @@ def logout():
         )
     )
 
-
 @app.route("/tag/<string:tag>")
 def tag(tag):
     posts = [p for p in flatpages if tag in p.meta.get('tags', [])]
     posts.sort(key=lambda item: item.meta['date'], reverse=True)
     return render_template("home.html", session=session.get('user'), posts=posts, tag=tag, pretty=json.dumps(session.get('user'), indent=4))
-
 
 @app.route("/")
 def home():
