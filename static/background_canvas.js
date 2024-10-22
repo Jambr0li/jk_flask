@@ -4,11 +4,19 @@ const c = canvas.getContext('2d');
 let mouse = {
     x: undefined,
     y: undefined,
+    active: false
 };
-
+let mouseMoveTimeout;
 window.addEventListener('mousemove', function(event) {
     mouse.x = event.x;
     mouse.y = event.y;
+    mouse.active = true;
+
+    this.clearTimeout(mouseMoveTimeout);
+
+    mouseMoveTimeout = setTimeout(function() {
+        mouse.active = false;
+    }, 200)
 });
 
 window.addEventListener('resize', function() {
@@ -71,8 +79,8 @@ function Circle(x, y, dx, dy, r) {
 
         // Interactivity
         if (
-            Math.abs(mouse.x - this.x) < bound &&
-            Math.abs(mouse.y - this.y) < bound
+            (mouse.x !== undefined && Math.abs(mouse.x - this.x) < bound &&
+            Math.abs(mouse.y - this.y) < bound && mouse.active)
         ) {
             if (this.r < maxRadius) {
                 this.r += 1; // Adjusted from 10 to 1 for smoother animation
