@@ -69,5 +69,19 @@ def home():
     posts.sort(key=lambda item: item.meta['date'], reverse=True)
     return render_template("home.html", session=session.get('user'), posts=posts, pretty=json.dumps(session.get('user'), indent=4))
 
+def load_books():
+    with open(os.path.join(app.root_path, 'static', 'books.json'), 'r') as f:
+        books = json.load(f)
+    return books
+
+@app.route("/reading_list")
+def reading_list():
+    books_by_genre = load_books()
+    return render_template("reading_list.html",books_by_genre=books_by_genre)
+
+@app.route("/portfolio")
+def portfolio():
+    return render_template("portfolio.html")
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=env.get("PORT", 3000), debug=True)

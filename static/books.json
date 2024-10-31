@@ -1,0 +1,26 @@
+{
+    "Fantasy": [
+      {
+        "title": "The Way of Kings",
+        "author": "Brandon Sanderson",
+        "description": "This is a the ultimate choice for fans of epic fantasy. The world is immense, meticulously crafted, and consistent."
+      },
+      {
+        "title": "The Will of The Many",
+        "author": "James Inslington",
+        "description": "Best book I've read this year. An intense story following a single perspective of a lad trying to make his father proud."
+      }
+    ],
+    "Biograhies": [
+      {
+        "title": "Benjamin Franklin",
+        "author": "Walter Isaacson",
+        "description": "The only person with his name on all four foundational documents that created the United States of America. An inventor, writer, leader, and businessman. Benjamin Franklin is one of a kind."
+      },
+      {
+        "title": "Steve Jobs",
+        "author": "Walter Isaacson",
+        "description": "We're all human it seems."
+      }
+    ]
+  }
