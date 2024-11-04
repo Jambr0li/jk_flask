@@ -1,4 +1,12 @@
 {
+
+    "Fiction": [
+      {
+        "title": "1984",
+        "author": "George Orwell",
+        "description": "A classic that makes me scared."
+      }
+    ],
     "Fantasy": [
       {
         "title": "The Way of Kings",
@@ -9,6 +17,11 @@
         "title": "The Will of The Many",
         "author": "James Inslington",
         "description": "Best book I've read this year. An intense story following a single perspective of a lad trying to make his father proud."
+      },
+      {
+        "title": "The Licanius Trilogy",
+        "author": "James Inslington",
+        "description": "One of the most satisfying endings to a trilogy. High stakes, many moving pieces, and time manipulation to make things even more interesting. "
       }
     ],
     "Biograhies": [
@@ -21,6 +34,11 @@
         "title": "Steve Jobs",
         "author": "Walter Isaacson",
         "description": "We're all human it seems."
+      },
+      {
+        "title": "Surely You're Joking Mr. Feynman",
+        "author": "Richard Feynman",
+        "description": "A collection of fun and fasinating stories from the life of Richard Feynman, written by Richard Feynman. Known for his excellence as a physics professor and spunk as a human. Loved reading this."
       }
     ]
   }
