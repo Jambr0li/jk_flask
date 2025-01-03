@@ -17,6 +17,7 @@ body {
 
 .carousel {
     margin-bottom: 1rem;
+    max-width: 80%;
 }
 
 .carousel-caption {
