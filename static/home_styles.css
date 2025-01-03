@@ -20,10 +20,12 @@ body {
     max-width: 80%;
 }
 
-.carousel-caption {
+
+.carousel-caption p {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 5px;
     border-radius: 5px;
+    transform: translateY(40px);
 }
 
 .carousel-item img {
