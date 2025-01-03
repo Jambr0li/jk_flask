@@ -2,44 +2,10 @@
     margin-bottom: 2rem;
 }
 
-.navbar-nav .nav-item {
-    margin-left: 2rem;
-}
-
-.navbar-custom {
-    background-color: #292929; /* Custom background color */
-    color: #e8f1f2;            /* Custom text color */
-}
-
 .navbar-custom .nav-link {
-    color: #e8f1f2; /* Link color */
-    font-size: large;
+    color: black;
 }
 
 .navbar-custom .nav-link:hover {
-    color: #913961; /* Link color on hover */
-}
-
-.navbar-toggler-icon {
-    background-image: none; /* Remove default icon */
-    color: #f0a500;         /* Custom color */
-}
-
-/* Add custom icon styling */
-.navbar-toggler-icon::before {
-    content: "\2630";       /* Unicode character for a "hamburger" icon */
-    font-size: 1.5rem;
-    color: #e8f1f2;         /* Custom color */
-}
-
-/* Remove the border and box-shadow */
-.navbar-toggler {
-    border: none;            /* Removes border */
-    box-shadow: none;        /* Removes any default shadow */
-}
-
-/* Optional: Add a custom border color */
-.navbar-toggler:focus, .navbar-toggler:hover {
-    outline: none;           /* Removes focus outline */
-    border: 1px solid #e8f1f2; /* Optional: Add a custom hover/focus border */
+    color: #913961;
 }

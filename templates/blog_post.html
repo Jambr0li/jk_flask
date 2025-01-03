@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ post.meta.title}}
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='blog_post_styles.css') }}">
+
+    <div class="container centered-blog-block">
+        <h1>{{ post.meta.title }}</h1>
+        <!-- Render the markdown content -->
+        {{ post.html | safe }}
+    </div>
+
+{% endblock %}

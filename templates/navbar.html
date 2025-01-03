@@ -1,21 +1,10 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='navbar.css') }}">
-<nav class="navbar navbar-expand-lg navbar-custom ">
+<nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
-        
-        <!-- Navbar Toggler (for mobile view) -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <!-- Navbar Links -->
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
-                <!-- Existing Links -->
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-                </li>
-                <!-- More Links if Needed -->
-            </ul>
-        </div>
+        <ul class="navbar-nav mx-auto"> 
+        <li class="nav-item">
+            <a class="nav-link fs-4 fw-bold" href="{{ url_for('home') }}">home</a>
+        </li>
+        </ul>
     </div>
 </nav>

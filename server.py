@@ -11,6 +11,10 @@ if ENV_FILE:
     load_dotenv(ENV_FILE)
 
 app = Flask(__name__)
+
+app.config['FLATPAGES_EXTENSION'] = '.md'
+app.config['FLATPAGES_ROOT'] = 'blog_posts'
+
 app.secret_key = env.get("APP_SECRET_KEY") # configuring flask for my app via the generated key.
 
 flatpages = FlatPages(app)
@@ -19,7 +23,15 @@ oauth = OAuth(app)
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+
+    posts = flatpages
+
+    return render_template("home.html", posts=posts)
+
+@app.route("/blog/<path:path>/")
+def blog_post(path):
+    post = flatpages.get_or_404(path)
+    return render_template("blog_post.html", post=post)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=env.get("PORT", 3000), debug=True)
