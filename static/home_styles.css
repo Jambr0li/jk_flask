@@ -14,3 +14,17 @@ body {
 .blog-post-title a {
     color: black;
 }
+
+.carousel {
+    margin-bottom: 1rem;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.carousel-item img {
+    border-radius: 10px;
+}
