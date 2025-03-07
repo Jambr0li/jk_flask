@@ -26,9 +26,46 @@
             />
             <!-- Custom CSS -->
             <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home_styles.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='animated_bg.css') }}">
 
         </head>
     <body>
+        <!-- Animated Background -->
+        <div class="particles"></div>
+        <script>
+            function createParticle() {
+                const particles = document.querySelector('.particles');
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size between 2-6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random starting position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 10-20s
+                particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                
+                particles.appendChild(particle);
+                
+                // Remove particle after animation
+                particle.addEventListener('animationend', () => {
+                    particle.remove();
+                });
+            }
+
+            // Create initial particles
+            for (let i = 0; i < 50; i++) {
+                createParticle();
+            }
+
+            // Continue creating particles
+            setInterval(createParticle, 300);
+        </script>
 
         <!-- Navigation Bar --> 
         {% include "navbar.html" %}
