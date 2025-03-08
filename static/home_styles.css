@@ -9,7 +9,7 @@ body {
 }
   
 .centered-block {
-    max-width: 400px;
+    max-width: 600px;
 }
 
 .blog-post-title a {
@@ -32,6 +32,11 @@ p, h1, h2, h3, h4, h5, h6 {
     max-width: 80%;
 }
 
+@media (max-width: 768px) {
+    .carousel {
+        max-width: 80%;
+    }
+}
 
 .carousel-caption p {
     background-color: rgba(0, 0, 0, 0.5);
@@ -42,4 +47,14 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .carousel-item img {
     border-radius: 10px;
+}
+
+
+a {
+    text-decoration: none;
+    color: #dc649a;
+}
+
+a:hover {
+    color: #dc649a;
 }

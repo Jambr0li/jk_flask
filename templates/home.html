@@ -3,6 +3,24 @@
 {% block content %}
 
 <div class="container centered-block">
+
+    <div class="container">
+        <p>Hello! I'm Jason. Thank you for stopping by!</p>
+        <h5>Education:</h5>
+        <ul>
+            <li>Bachelor's Degree in Computer Science with a minor in Mathematics from WSU (Graduating in May)</li>
+            <li>Certified Cloud Practitioner Certification from Amazon</li>
+        </ul>
+        <h5>Experience:</h5>
+        <ul>
+            <li>Software Engineering Internship at Health Parse</li>
+            <ul>
+                <li>Worked closely with a senior data engineer in the health care industry to bring a product to market that allows for parsing HL7 data.</li>
+                <li>Developed a Electron based application with CI/CD pipelines for automatic updates and deployment.</li>
+            </ul>
+        </ul>
+    </div>
+
     <!-- Image Carousel -->
     <div class="d-flex justify-content-center">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -55,7 +73,7 @@
     </div>
   </div>
 
-    <h3 class="text-center">projects</h3>
+    <h3 class="text-center mt-4">Projects</h3>
     <ul class="bullets">
         {% for post in posts %}
         <li class="blog-post-title">
